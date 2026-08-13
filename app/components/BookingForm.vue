@@ -72,14 +72,20 @@ const formContainer = ref<HTMLElement | null>(null);
 onMounted(() => {
   if (!formContainer.value) return;
 
+  const title = formContainer.value.querySelector(".booking-form__title");
+
   const fields = formContainer.value.querySelectorAll(".booking-form__field");
 
-  gsap.from(formContainer.value.querySelector(".booking-form__title"), {
-    opacity: 0,
-    y: 15,
-    duration: 0.5,
-    ease: "power2.out",
-  });
+  const submit = formContainer.value.querySelector(".booking-form__submit");
+
+  if (title) {
+    gsap.from(title, {
+      opacity: 0,
+      y: 15,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  }
 
   gsap.from(fields, {
     opacity: 0,
@@ -87,14 +93,6 @@ onMounted(() => {
     duration: 0.4,
     stagger: 0.06,
     delay: 0.1,
-    ease: "power2.out",
-  });
-
-  gsap.from(formContainer.value.querySelector(".booking-form__submit"), {
-    opacity: 0,
-    y: 8,
-    duration: 0.4,
-    delay: 0.4,
     ease: "power2.out",
   });
 });
@@ -105,7 +103,7 @@ onMounted(() => {
     <h1 class="booking-form__title">Забронировать столик</h1>
 
     <form class="booking-form__form" @submit.prevent="onSubmit" novalidate>
-      <div class="booking-form__field" ref="formContainer">
+      <div class="booking-form__field">
         <label class="booking-form__label" for="name">Имя гостя</label>
         <input
           id="name"
@@ -122,7 +120,7 @@ onMounted(() => {
         }}</span>
       </div>
 
-      <div class="booking-form__field" ref="formContainer">
+      <div class="booking-form__field">
         <label class="booking-form__label" for="phone">Телефон</label>
         <input
           id="phone"
@@ -139,7 +137,7 @@ onMounted(() => {
         }}</span>
       </div>
 
-      <div class="booking-form__field" ref="formContainer">
+      <div class="booking-form__field">
         <label class="booking-form__label" for="date">Дата</label>
         <input
           id="date"
@@ -155,7 +153,7 @@ onMounted(() => {
         }}</span>
       </div>
 
-      <div class="booking-form__field" ref="formContainer">
+      <div class="booking-form__field">
         <label class="booking-form__label" for="time">Время</label>
         <select
           id="time"
@@ -174,7 +172,7 @@ onMounted(() => {
         }}</span>
       </div>
 
-      <div class="booking-form__field" ref="formContainer">
+      <div class="booking-form__field">
         <label class="booking-form__label">Количество гостей</label>
         <div class="booking-form__stepper">
           <button
