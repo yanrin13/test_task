@@ -36,3 +36,5 @@ export const useBookingStore = defineStore("booking", () => {
     resetBooking,
   };
 });
+
+// реализация хранилища для pinia
