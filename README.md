@@ -1,75 +1,35 @@
-# Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Тестовое задание — форма бронирования с валидацией данных, выбором даты и времени, количеством гостей и экраном подтверждения
 
-## Setup
 
-Make sure to install dependencies:
+## Запуск проекта
 
-```bash
-# npm
+
+Установить зависимости:
+```
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+Запустить проект в режиме разработки:
+```
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+# Тестирование
 
-Build the application for production:
+Для тестирования используется Vitest
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+Установить Vitest
+```
+npm install -D vitest
+```
+Запустить тесты:
+```
+npm test
 ```
 
-Locally preview production build:
+Для большей наглядности и покрытия функций для каждой тестируемой функции предусмотрены позитивный и негативный сценарии
+Для управления состоянием бронирования используется Pinia
+Переключение между формой бронирования и экраном подтверждения реализовано через булевый стейт. Выбрано т.к. это быстрое и простое решение
+Логика валидации вынесена в отдельный composable, чтобы отделить проверку данных от компонента формы
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+А еще я решила стилизовать форму под чек т.к. я думаю это подходит тематике :)
